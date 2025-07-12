@@ -41,5 +41,17 @@ plt.show()
 
 # Final Grid Spacing and Nyquist Limit
 dx = x[1] - x[0]
-print(f"Final grid spacing: dx = {dx:.6f}")
-print(f"Nyquist limit: 2dx = {2*dx:.6f}")
+nyquist_limit = 2 * dx
+gradient_error = dx**2
+
+# --- Summary Report ---
+print("\n--- 2D Scalar Field Simulation Report ---")
+print(f"Final Grid Size (N x N): {N[-1]} x {N[-1]}")
+print(f"Domain Range: x, y ∈ [-2, 2]")
+print(f"Grid Spacing (Δx = Δy): {dx:.6f}")
+print(f"Nyquist Limit (2Δx): {nyquist_limit:.6f}")
+print(f"Gradient Error Estimate (Δx²): {gradient_error:.2e}")
+print(f"\nElapsed Times:")
+for i in range(len(N)):
+    print(f"  N = {N[i]:4d} | Grid Points = {N[i]**2:7,d} | Time = {timings[i]:.5f} sec")
+print("----------------------------------------")
